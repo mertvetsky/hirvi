@@ -1,5 +1,4 @@
 <?php
-use Log\Log;
 
 /**
  * Created by PhpStorm.
