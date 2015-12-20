@@ -11,7 +11,7 @@
  */
 ?>
 <head>
-    <? $this->getCssJsTitle() ?>
+    <?= $this->getCssJsTitle() ?>
 </head>
 <body>
 CORAL HEAD
