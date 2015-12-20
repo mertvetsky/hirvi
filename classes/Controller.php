@@ -11,6 +11,20 @@ class Controller
 {
     protected $layout = 'main';
     protected $title  = 'Hirvi! ';
+    protected $js     = [];
+    protected $css    = [];
+
+
+    public function __construct()
+    {
+        $this->initBaseStatic();
+    }
+
+
+    protected function initBaseStatic()
+    {
+
+    }
 
 
     /**
@@ -45,7 +59,12 @@ class Controller
      */
     protected function view($tpl, array $params = [])
     {
-        return (new View($this->layout, $this->title, $tpl, $params, $this))->getPage();
+        $view = new View($this->layout, $tpl, $params, $this);
+        $view->addTitle($this->title);
+        $view->addJs(array_unique($this->js));
+        $view->addCss(array_unique($this->css));
+
+        return $view->getPage();
     }
 
 
@@ -59,4 +78,17 @@ class Controller
     {
         $this->title .= $str;
     }
+
+
+    protected function registerCss($css)
+    {
+        $this->css[] = $css;
+    }
+
+
+    protected function registerJs($js)
+    {
+        $this->js[] = $js;
+    }
+
 }
