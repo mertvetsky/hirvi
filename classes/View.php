@@ -110,14 +110,16 @@ class View
 
     protected function getCssJsTitle()
     {
-        echo "<title>$this->title</title>";
+        $result = "<title>$this->title</title>" . PHP_EOL;
         foreach ($this->js as $js_path) {
-            echo '<script type = "text/javascript" src = "' . $js_path . '" ></script >';
+            $result .= '<script type = "text/javascript" src = "' . $js_path . '" ></script >' . PHP_EOL;
         }
 
         foreach ($this->css as $css_path) {
-            echo '<link href = "' . $css_path . '" rel = "stylesheet" media = "all" />';
+            $result .= '<link href = "' . $css_path . '" rel = "stylesheet" media = "all" />' . PHP_EOL;
         }
+
+        return $result;
     }
 
 }
