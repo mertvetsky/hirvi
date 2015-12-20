@@ -9,27 +9,27 @@
  */
 class View
 {
+    private $css;
+    private $js;
     private $layout;
     private $template;
     private $params;
-    private $title;
+    private $title = '';
     private $controller;
 
 
     /**
      * View constructor.
      * @param $layout
-     * @param $title
      * @param $template
      * @param $params
      * @param $controller
      */
-    public function __construct($layout, $title, $template, $params, $controller)
+    public function __construct($layout, $template, $params, $controller)
     {
         $this->layout     = $layout;
         $this->template   = $template;
         $this->params     = $params;
-        $this->title      = $title;
         $this->controller = $controller;
     }
 
@@ -44,8 +44,12 @@ class View
         $layout_path = $this->getPath('layouts', $this->layout);
         $page_path   = $this->getPath(Router::getInstance()->controller, $this->template);
 
-        return $this->render($layout_path,
-            ['title' => $this->title, 'content' => $this->render($page_path, $this->params)]);
+        return $this->render($layout_path, [
+            'title'   => $this->title,
+            'js'      => $this->js,
+            'css'     => $this->css,
+            'content' => $this->render($page_path, $this->params)
+        ]);
     }
 
 
@@ -74,6 +78,24 @@ class View
         ob_end_clean();
 
         return $page;
+    }
+
+
+    public function addTitle($title)
+    {
+        $this->title = $title;
+    }
+
+
+    public function addJs(array $js_array)
+    {
+        $this->js = $js_array;
+    }
+
+
+    public function addCss(array $css_array)
+    {
+        $this->css = $css_array;
     }
 
 }

@@ -10,7 +10,7 @@ class Log
 {
     public static function write($text)
     {
-        $text = rand(1000, 9999).' '.date('c') . "\t" . $text . PHP_EOL;
+        $text = date('c') . "\t" . $text . PHP_EOL;
 
         if(!file_exists(HIRVI_LOGS)) {
             if(!mkdir(HIRVI_LOGS)){

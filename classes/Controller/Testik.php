@@ -10,7 +10,6 @@ namespace Controller;
 
 class Testik extends \Controller
 {
-
     public function actionPage()
     {
         echo $this->view('page', ['date' => date('c')]);
@@ -19,10 +18,18 @@ class Testik extends \Controller
 
     public function actionIndex($pr)
     {
-        $this->layout = 'coral';
+        //        $this->layout = 'coral';
         $this->appendTitle('index page');
+        $this->registerJs('testik/chtoto.js');
 
         echo $this->view('index', ['name' => $pr]);
+    }
+
+
+    protected function initBaseStatic()
+    {
+        $this->registerCss('main.css');
+        $this->registerJs('main.js');
     }
 
 }

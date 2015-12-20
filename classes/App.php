@@ -12,8 +12,12 @@ class App
     {
         Config::set(require_once __DIR__ . '/../config.php');
         Log::write('started');
+    }
 
-        echo Router::getInstance()->callAction();
+
+    function __toString()
+    {
+        return (string)Router::getInstance()->callAction();
     }
 
 }

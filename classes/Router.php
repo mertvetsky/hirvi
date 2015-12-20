@@ -41,6 +41,7 @@ class Router extends Singleton
         $actionRef      = 'action' . ucfirst($this->action);
 
         if (!class_exists($controller_ref)) {
+            header("HTTP/1.0 404 Not Found");
             echo 404 . $controller_ref;
             die();
         }
@@ -48,6 +49,7 @@ class Router extends Singleton
         $controller = new $controller_ref;
 
         if (!method_exists($controller, $actionRef)) {
+            header("HTTP/1.0 404 Not Found");
             echo 404 . $controller_ref . '->' . $actionRef;
             die();
         }
