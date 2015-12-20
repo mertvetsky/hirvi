@@ -27,8 +27,8 @@ class Testik extends \Controller
     {
         $this->appendTitle('index page');
         $this->setLayout('coral');
-        $this->registerCss('testik/white_text.css');
-        $this->registerJs('testik/chtoto.js');
+        $this->registerCss('/css/testik/white_text.css');
+        $this->registerJs('/js/testik/chtoto.js');
 
         return $this->view('index', ['name' => $pr]);
     }
@@ -39,8 +39,9 @@ class Testik extends \Controller
      */
     protected function initBaseStatic()
     {
-        $this->registerCss('main.css');
-        $this->registerJs('main.js');
+        $this->registerCss('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+        $this->registerCss('/css/main.css');
+        $this->registerJs('/js/main.js');
     }
 
 }

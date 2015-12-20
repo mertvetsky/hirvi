@@ -13,7 +13,7 @@
 <head>
     <? $this->getCssJsTitle() ?>
 </head>
-<body bgcolor="#ff7f50">
+<body>
 CORAL HEAD
 <hr>
 <?= $content ?>
