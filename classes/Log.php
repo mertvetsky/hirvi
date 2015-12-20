@@ -8,6 +8,9 @@
 
 class Log
 {
+    /**
+     * @param $text
+     */
     public static function write($text)
     {
         $text = date('c') . "\t" . $text . PHP_EOL;

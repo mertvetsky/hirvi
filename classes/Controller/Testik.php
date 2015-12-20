@@ -10,22 +10,32 @@ namespace Controller;
 
 class Testik extends \Controller
 {
+    /**
+     * @return string
+     */
     public function actionPage()
     {
-        echo $this->view('page', ['date' => date('c')]);
+        return $this->view('page', ['date' => date('c')]);
     }
 
 
-    public function actionIndex($pr)
+    /**
+     * @param $pr
+     * @return string
+     */
+    public function actionIndex($pr = 'default value for $pr')
     {
         //        $this->layout = 'coral';
         $this->appendTitle('index page');
         $this->registerJs('testik/chtoto.js');
 
-        echo $this->view('index', ['name' => $pr]);
+        return $this->view('index', ['name' => $pr]);
     }
 
 
+    /**
+     *
+     */
     protected function initBaseStatic()
     {
         $this->registerCss('main.css');

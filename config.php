@@ -11,5 +11,7 @@ define('HIRVI_ROOT', __DIR__);
 define('HIRVI_VIEW', HIRVI_ROOT.'/views');
 define('HIRVI_LOGS', HIRVI_ROOT.'/logs');
 
-
+/**
+ * болванка для конфига
+ */
 return [];

@@ -11,6 +11,7 @@ class Request extends Singleton
 {
     private $get;
     private $server;
+    private $post;
 
 
     /**

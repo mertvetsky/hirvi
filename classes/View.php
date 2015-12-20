@@ -81,18 +81,27 @@ class View
     }
 
 
+    /**
+     * @param $title
+     */
     public function addTitle($title)
     {
         $this->title = $title;
     }
 
 
+    /**
+     * @param array $js_array
+     */
     public function addJs(array $js_array)
     {
         $this->js = $js_array;
     }
 
 
+    /**
+     * @param array $css_array
+     */
     public function addCss(array $css_array)
     {
         $this->css = $css_array;

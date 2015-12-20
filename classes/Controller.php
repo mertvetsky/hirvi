@@ -15,12 +15,18 @@ class Controller
     protected $css    = [];
 
 
+    /**
+     * Controller constructor.
+     */
     public function __construct()
     {
         $this->initBaseStatic();
     }
 
 
+    /**
+     * для массовой инициализации js/css в контроллере
+     */
     protected function initBaseStatic()
     {
 
@@ -68,24 +74,36 @@ class Controller
     }
 
 
+    /**
+     * @param $title
+     */
     protected function setTitle($title)
     {
         $this->title = $title;
     }
 
 
+    /**
+     * @param $str
+     */
     protected function appendTitle($str)
     {
         $this->title .= $str;
     }
 
 
+    /**
+     * @param $css
+     */
     protected function registerCss($css)
     {
         $this->css[] = $css;
     }
 
 
+    /**
+     * @param $js
+     */
     protected function registerJs($js)
     {
         $this->js[] = $js;
