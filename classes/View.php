@@ -107,4 +107,17 @@ class View
         $this->css = $css_array;
     }
 
+
+    protected function getCssJsTitle()
+    {
+        echo "<title>$this->title</title>";
+        foreach ($this->js as $js_path) {
+            echo '<script type = "text/javascript" src = "/js/' . $js_path . '" ></script >';
+        }
+
+        foreach ($this->css as $css_path) {
+            echo '<link href = "/css/' . $css_path . '" rel = "stylesheet" media = "all" />';
+        }
+    }
+
 }

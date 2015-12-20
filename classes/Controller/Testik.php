@@ -25,8 +25,9 @@ class Testik extends \Controller
      */
     public function actionIndex($pr = 'default value for $pr')
     {
-        //        $this->layout = 'coral';
         $this->appendTitle('index page');
+        $this->setLayout('coral');
+        $this->registerCss('testik/white_text.css');
         $this->registerJs('testik/chtoto.js');
 
         return $this->view('index', ['name' => $pr]);
