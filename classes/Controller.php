@@ -25,7 +25,7 @@ class Controller
 
 
     /**
-     * для массовой инициализации js/css в контроллере
+     * для массовой инициализации js/css/layout в контроллере
      */
     protected function initBaseStatic()
     {
@@ -107,6 +107,12 @@ class Controller
     protected function registerJs($js)
     {
         $this->js[] = $js;
+    }
+
+
+    protected function setLayout($layout)
+    {
+        $this->layout = $layout;
     }
 
 }
