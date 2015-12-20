@@ -9,6 +9,11 @@
  */
 class Config
 {
+    /**
+     * сейчас через него инициализируются константы, но потом можно сделать больше
+     *
+     * @param array $config
+     */
     public static function set(array $config)
     {
 

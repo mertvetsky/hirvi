@@ -54,7 +54,7 @@ class Router extends Singleton
             die();
         }
 
-        $controller->__named($actionRef, Request::getInstance()->getGet());
+        return $controller->__named($actionRef, Request::getInstance()->getGet());
     }
 
 }

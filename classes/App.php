@@ -8,6 +8,9 @@
  */
 class App
 {
+    /**
+     * App constructor.
+     */
     public function __construct()
     {
         Config::set(require_once __DIR__ . '/../config.php');
@@ -15,6 +18,9 @@ class App
     }
 
 
+    /**
+     * @return string
+     */
     function __toString()
     {
         return (string)Router::getInstance()->callAction();
