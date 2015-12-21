@@ -9,12 +9,18 @@
  */
 class Config
 {
+    public function __construct()
+    {
+        $this->init(require_once __DIR__ . '/../config.php');
+    }
+
+
     /**
      * сейчас через него инициализируются константы, но потом можно сделать больше
      *
      * @param array $config
      */
-    public static function set(array $config)
+    public function init(array $config)
     {
 
     }

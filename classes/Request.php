@@ -7,7 +7,7 @@
  * Date: 12/20/15
  * Time: 7:39 AM
  */
-class Request extends Singleton
+class Request
 {
     private $get;
     private $server;

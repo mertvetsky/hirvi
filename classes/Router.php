@@ -7,7 +7,7 @@
  * Date: 12/20/15
  * Time: 7:48 AM
  */
-class Router extends Singleton
+class Router
 {
     public $controller = 'index';
     public $action     = 'index';
@@ -18,7 +18,7 @@ class Router extends Singleton
      */
     public function __construct()
     {
-        $uri = Request::getInstance()->getUri();
+        $uri = Hirvi::$app->request->getUri();
 
         $parts = explode('/', parse_url($uri)['path']);
 
@@ -54,7 +54,7 @@ class Router extends Singleton
             die();
         }
 
-        return $controller->__named($actionRef, Request::getInstance()->getGet());
+        return $controller->__named($actionRef, Hirvi::$app->request->getGet());
     }
 
 }
