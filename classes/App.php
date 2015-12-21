@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Created by PhpStorm.
  * User: mert
@@ -9,21 +10,33 @@
 class App
 {
     /**
-     * App constructor.
+     * @var Request
      */
-    public function __construct()
-    {
-        Config::set(require_once __DIR__ . '/../config.php');
-        Log::write('started');
-    }
+    public $request;
+
+    /**
+     * @var Router
+     */
+    public $router;
+
+    /**
+     * @var Config
+     */
+    public $config;
 
 
     /**
      * @return string
      */
-    function __toString()
+    function run()
     {
-        return (string)Router::getInstance()->callAction();
+
+        $this->config  = new Config();
+        $this->request = new Request();
+        $this->router  = new Router();
+        Log::write('started');
+
+        echo (string)Hirvi::$app->router->callAction();
     }
 
 }
