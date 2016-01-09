@@ -42,7 +42,7 @@ class View
     public function getPage()
     {
         $layout_path = $this->getPath('layouts', $this->layout);
-        $page_path   = $this->getPath(Hirvi::$app->router->controller, $this->template);
+        $page_path   = $this->getPath(Hirvi::$app->request->controller, $this->template);
 
         return $this->render($layout_path, [
             'title'   => $this->title,

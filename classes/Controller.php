@@ -45,13 +45,13 @@ class Controller
         $reflection = new ReflectionMethod($this, $method);
 
         $pass = [];
+
+        foreach (Hirvi::$app->request->uri_params as $param) {
+            $pass[] = $param;
+        }
+        /* @var $param ReflectionParameter */
         foreach ($reflection->getParameters() as $param) {
-            /* @var $param ReflectionParameter */
-            if (isset($args[$param->getName()])) {
-                $pass[] = $args[$param->getName()];
-            } else {
-                $pass[] = $param->getDefaultValue();
-            }
+            $pass[] = $args[$param->getName()] ? $args[$param->getName()] : $param->getDefaultValue();
         }
 
         return $reflection->invokeArgs($this, $pass);

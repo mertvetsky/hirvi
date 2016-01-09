@@ -9,26 +9,12 @@
  */
 class Router
 {
-    public $controller = 'index';
-    public $action     = 'index';
-
-
     /**
      * Router constructor.
      */
     public function __construct()
     {
-        $uri = Hirvi::$app->request->getUri();
 
-        $parts = explode('/', parse_url($uri)['path']);
-
-        if ($parts[1] != '') {
-            $this->controller = strtolower($parts[1]);
-
-            if ($parts[2] != '') {
-                $this->action = strtolower($parts[2]);
-            }
-        }
     }
 
 
@@ -37,8 +23,8 @@ class Router
      */
     public function callAction()
     {
-        $controller_ref = '\Controller\\' . ucfirst($this->controller);
-        $actionRef      = 'action' . ucfirst($this->action);
+        $controller_ref = '\Controller\\' . ucfirst(Hirvi::$app->request->controller);
+        $actionRef      = 'action' . ucfirst(Hirvi::$app->request->action);
 
         if (!class_exists($controller_ref)) {
             header("HTTP/1.0 404 Not Found");
