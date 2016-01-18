@@ -59,7 +59,7 @@ class Controller
 
 
     /**
-     * @param $tpl
+     * @param string $tpl
      * @param array $params
      * @return string
      */
@@ -84,7 +84,7 @@ class Controller
 
 
     /**
-     * @param $str
+     * @param string $str
      */
     protected function appendTitle($str)
     {
@@ -93,7 +93,7 @@ class Controller
 
 
     /**
-     * @param $css
+     * @param string $css
      */
     protected function registerCss($css)
     {
@@ -102,7 +102,7 @@ class Controller
 
 
     /**
-     * @param $js
+     * @param string $js
      */
     protected function registerJs($js)
     {
@@ -110,6 +110,9 @@ class Controller
     }
 
 
+    /**
+     * @param string $layout
+     */
     protected function setLayout($layout)
     {
         $this->layout = $layout;
