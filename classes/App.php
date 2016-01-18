@@ -28,7 +28,7 @@ class App
     /**
      * @return string
      */
-    function run()
+    public function run()
     {
 
         $this->config  = new Config();
