@@ -51,7 +51,7 @@ class Controller
         }
         /* @var $param ReflectionParameter */
         foreach ($reflection->getParameters() as $param) {
-            $pass[] = $args[$param->getName()] ? $args[$param->getName()] : $param->getDefaultValue();
+            $pass[] = isset($args[$param->getName()]) ? $args[$param->getName()] : $param->getDefaultValue();
         }
 
         return $reflection->invokeArgs($this, $pass);
