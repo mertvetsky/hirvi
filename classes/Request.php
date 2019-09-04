@@ -80,7 +80,7 @@ class Request
      */
     public function getPost()
     {
-        return $this->get;
+        return $this->post;
     }
 
 
